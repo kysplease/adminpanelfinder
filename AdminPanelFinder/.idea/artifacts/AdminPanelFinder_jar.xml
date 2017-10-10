@@ -3,6 +3,8 @@
     <output-path>$PROJECT_DIR$/out/artifacts/AdminPanelFinder_jar</output-path>
     <root id="archive" name="AdminPanelFinder.jar">
       <element id="module-output" name="AdminPanelFinder" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/commons-cli-1.4/commons-cli-1.4-tests.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/commons-cli-1.4/commons-cli-1.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/commons-codec-1.9.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/commons-logging-1.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/fluent-hc-4.5.3.jar" path-in-jar="/" />

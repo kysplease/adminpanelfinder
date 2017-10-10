@@ -1,5 +1,6 @@
 package com.github.adminpanelfinder;
 
+import org.apache.commons.cli.*;
 import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -17,12 +18,25 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        System.out.println(Colors.GREEN + "AdminPanelFinder v1.0 \n" +
+    public static void main(String[] args) throws IOException, ParseException {
+        System.out.println(Colors.GREEN + "AdminPanelFinder v1.1 \n" +
                 "Created by kysplease\n" + Colors.RESET);
 
-        System.out.println(Colors.GREEN + "Enter the site you'd like to test: " + Colors.RESET);
-        Scanner scanner = new Scanner(System.in);
+        CommandLineParser parser = new DefaultParser();
+        Options options = new Options();
+
+        options.addOption("w", "website", true, "Website to test.");
+        CommandLine commandLine = parser.parse(options, args);
+
+        if(!commandLine.hasOption("w")) {
+            System.out.println(Colors.RED +
+                    "A website must be specified!" + Colors.RESET);
+
+            HelpFormatter helpFormatter = new HelpFormatter();
+            helpFormatter.printHelp("AdminPanelFinder", options);
+            System.exit(1);
+        }
+
 
         Path directoryList = FileSystems.getDefault().getPath("list.txt");
         Path validLinks = FileSystems.getDefault().getPath("validLinks.txt");
@@ -30,7 +44,7 @@ public class Main {
         Scanner reader = new Scanner(directoryList);
         BufferedWriter writer = Files.newBufferedWriter(validLinks);
 
-        String site = scanner.nextLine();
+        String site = commandLine.getOptionValue("w");
 
         if (!site.endsWith("/")) {
             site += "/";
@@ -73,8 +87,8 @@ public class Main {
             }
         } catch (NoHttpResponseException e) {
             System.out.println(Colors.RED +
-            "NoHttpResponseException: Link is either invalid or the site is down." +
-            Colors.RESET);
+                    "NoHttpResponseException: Link is either invalid or the site is down." +
+                    Colors.RESET);
 
             System.exit(1);
         } catch (HttpHostConnectException e) {
@@ -92,17 +106,17 @@ public class Main {
         }
 
         System.out.println(Colors.RED +
-        "\nAmount Failed: " + failCount + Colors.RESET);
+                "\nAmount Failed: " + failCount + Colors.RESET);
 
         System.out.println(Colors.YELLOW +
-        "Amount Possibly Successful: " + possibleSuccessCount + Colors.RESET);
+                "Amount Possibly Successful: " + possibleSuccessCount + Colors.RESET);
 
         System.out.println(Colors.GREEN +
-        "Amount Successful: " + successCount + Colors.RESET);
+                "Amount Successful: " + successCount + Colors.RESET);
 
         System.out.println(Colors.GREEN +
-        "\nAll valid links have been added to 'validLinks.txt', along with their response codes." +
-        Colors.RESET);
+                "\nAll valid links have been added to 'validLinks.txt', along with their response codes." +
+                Colors.RESET);
 
         reader.close();
         writer.close();
