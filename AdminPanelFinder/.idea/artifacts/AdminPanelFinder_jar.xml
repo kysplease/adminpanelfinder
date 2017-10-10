@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AdminPanelFinder:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AdminPanelFinder_jar</output-path>
+    <root id="archive" name="AdminPanelFinder.jar">
+      <element id="module-output" name="AdminPanelFinder" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/commons-codec-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/fluent-hc-4.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/httpclient-4.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/httpclient-cache-4.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/httpclient-win-4.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/httpcore-4.4.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/httpmime-4.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/jna-4.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/httpcomponents-client-4.5.3/lib/jna-platform-4.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
